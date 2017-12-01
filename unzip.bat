@@ -15,5 +15,7 @@ for /d %%i in (*) do (
     	::删除
     	del "%%j"
 	)
+	::退出子目录
+	cd ".."
 )
 pause
