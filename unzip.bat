@@ -10,10 +10,8 @@ for /d %%i in (*) do (
 	cd /d "%srcdir%\%%i"
 	::循环目录下的zip文件并解压,解压后删除zip文件
 	for /f %%j in ('dir *.zip /s /b') do (
-	::解压
-    	start "" "%zpath%" x "%%j" -y -aos -o"%%~dpi"
-    	::删除
-    	del "%%j"
+	::解压::删除
+    	start /W "" "%zpath%" x "%%j" -y -aos -o"%%~dpi" && del %%j
 	)
 	::退出子目录
 	cd ".."
